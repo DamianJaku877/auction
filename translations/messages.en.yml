@@ -3,7 +3,7 @@ auctions:
     title: "List of auctions: "
     item:
       title: "Title: "
-      nameTitle: "Number Auctions: "
+      nameTitle: "Auction nr: "
       descriptions: "Descriptions: "
       price: "Price: "
       valute: " EUR"
