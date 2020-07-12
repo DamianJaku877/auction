@@ -6,3 +6,4 @@ auctions:
       nameTitle: "Number Auctions: "
       descriptions: "Descriptions: "
       price: "Price: "
+      valute: " EUR"

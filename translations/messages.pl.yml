@@ -6,3 +6,4 @@ auctions:
       nameTitle: "Numer aukcji: "
       descriptions: "Opis: "
       price: "Cena: "
+      valute: "PLN"
