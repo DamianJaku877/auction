@@ -3,7 +3,7 @@ auctions:
     title: "Lista aukcji "
     item:
       title: "Tytuł: "
-      nameTitle: "Numer aukcji: "
+      nameTitle: "Aukcja nr: "
       descriptions: "Opis: "
       price: "Cena: "
       valute: "PLN"
