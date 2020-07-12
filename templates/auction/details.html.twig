@@ -1,4 +1,16 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <style>
+        h1{
+            color: white;
+        }
+        a{
+            text-align: center;
+        }
+    </style>
+{% endblock %}
 {% block body %}
-    <h1>more descriptions</h1>
+    {% for auction in auctionOneById %}
+    <h1>more descriptions {{ auction.name }}</h1>
+    {% endfor %}
 {% endblock %}
