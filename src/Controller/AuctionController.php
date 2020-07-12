@@ -5,15 +5,13 @@ namespace App\Controller;
 
 
 use App\Entity\AuctionItem;
+use App\Form\AuctionItemType;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\VarDumper\Cloner\Data;
 
 class AuctionController extends Controller
 {
@@ -43,23 +41,19 @@ class AuctionController extends Controller
 
     /**
      * @Route("/auction/add", name="auction_add")
+     * @param Request $request
+     * @return RedirectResponse|Response
      */
     public function addAuctionAction(Request $request)
     {
         $auction = new AuctionItem();
 
-        $form = $this->createFormBuilder($auction)
-            ->add("name", TextType::class)
-            ->add("description", TextareaType::class)
-            ->add("price", NumberType::class)
-            ->add("Submit", SubmitType::class)
-            ->getForm();
+        $form = $this->createForm(AuctionItemType::class, $auction);
 
         if ($request->isMethod("POST"))
         {
             $form->handleRequest($request);
-            $auction->setCreateAt(new \DateTime());
-            $auction = $form->getData();
+            $auction->setCreateAt(new DateTime());
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($auction);
