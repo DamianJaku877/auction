@@ -2,31 +2,33 @@
 {% block title %}{{ 'auctions.body.title'|trans }}{% endblock %}
 {% block stylesheets %}
     <style>
+        a{
+            text-align: center;
+            color: red;
+        }
     </style>
 {% endblock %}
 {% block body %}
-    <h1>{{ 'auctions.body.title'|trans }}</h1>
-    {% for auction in auctions %}
-{#        <ul class="list-group">#}
-{#            <li class="list-group-item active"><a href="{{ path('auction_details', {'id': auction.id}) }}" >{{ auction.title }}</a></li>#}
-{#            <li class="list-group-item">{{ auction.descriptions }}</li>#}
-{#            <li class="list-group-item">{{ auction.price }}</li>#}
-{#        </ul>#}
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item active"><a href="{{ path('auction_details', {'id': auction.id}) }}" >{{ auction.title }}</a></li>
-            <li class="list-group-item">{{ auction.descriptions }}</li>
-            <li class="list-group-item">{{ auction.price }}</li>
-        </ul>
-        <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-
-
-        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">A simple primary list group item</a>
-        <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">A simple secondary list group item</a>
-        <a href="#" class="list-group-item list-group-item-action list-group-item-success">A simple success list group item</a>
-        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">A simple danger list group item</a>
-        <a href="#" class="list-group-item list-group-item-action list-group-item-warning">A simple warning list group item</a>
-        <a href="#" class="list-group-item list-group-item-action list-group-item-info">A simple info list group item</a>
-        <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
-    {% endfor %}
+    <div class="container">
+        <div class="row">
+            <div class="col-6" style="align-items: center">
+                <h1>{{ 'auctions.body.title'|trans }}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                {% for auction in auctions %}
+                    <ul class="list-group">
+{#                        <li class="list-group-item active"> <a href="{{ path('auction_details', {'id': auction.id}) }}" style="text-decoration: none; color: #222222" >{{ auction.id }}</a></li>#}
+                        <a href="{{ path('auction_details', {'id' : auction.id}) }}" class="list-group-item list-group-item-action active">
+                            {{ auction.id }}
+                        </a>
+                        <li class="list-group-item"><b>{{ 'auctions.body.item.title'|trans }}</b>{{ auction.title }}</li>
+                        <li class="list-group-item"><b>{{ 'auctions.body.item.descriptions'|trans }}</b>{{ auction.descriptions }}</li>
+                        <li class="list-group-item"><b>{{ 'auctions.body.item.price'|trans }}</b>{{ auction.price }}</li>
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
