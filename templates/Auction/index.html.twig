@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'auctions.body.title'|trans }}{% endblock %}
+{% block stylesheets %}
+    <style>
+
+    </style>
+{% endblock %}
+{% block body %}
+    <h1>{{ 'auctions.body.title'|trans }}</h1>
+    {% for auction in auctions %}
+        <ul class="list-group">
+            <li class="list-group-item active">{{ auction.title }}</li>
+            <li class="list-group-item">{{ auction.descriptions }}</li>
+            <li class="list-group-item">{{ auction.price }}</li>
+        </ul>
+    {% endfor %}
+{% endblock %}
