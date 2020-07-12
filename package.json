@@ -1,0 +1,27 @@
+{
+  "name": "auction",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^1.2.1",
+    "grunt-contrib-jshint": "^2.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DamianJaku877/auction.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DamianJaku877/auction/issues"
+  },
+  "homepage": "https://github.com/DamianJaku877/auction#readme"
+}

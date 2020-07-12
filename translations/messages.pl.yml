@@ -1,0 +1,9 @@
+auctions:
+  body:
+    title: "Lista aukcji "
+    item:
+      title: "Tytuł: "
+      nameTitle: "Numer aukcji: "
+      descriptions: "Opis: "
+      price: "Cena: "
+      valute: "PLN"
