@@ -2,7 +2,7 @@ auctions:
   body:
     title: "Lista aukcji "
     item:
-      title: "Tytu: "
+      title: "Tytuł: "
       nameTitle: "Numer aukcji: "
       descriptions: "Opis: "
       price: "Cena: "
