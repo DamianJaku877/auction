@@ -26,7 +26,7 @@
                         </a>
                         <li class="list-group-item"><b>{{ 'auctions.body.item.title'|trans }}</b>{{ auction.name }}</li>
                         <li class="list-group-item"><b>{{ 'auctions.body.item.descriptions'|trans }}</b>{{ auction.description }}</li>
-                        <li class="list-group-item"><b>{{ 'auctions.body.item.price'|trans }}</b>{{ auction.price | round(2, 'common')}}{{ 'auctions.body.item.valute'|trans }}</li>
+                        <li class="list-group-item"><b>{{ 'auctions.body.item.price'|trans }}</b>{{ auction.price }}{{ 'auctions.body.item.valute'|trans }}</li>
                     </ul>
                 {% endfor %}
             </div>
