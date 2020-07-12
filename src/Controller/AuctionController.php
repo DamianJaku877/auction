@@ -14,29 +14,9 @@ class AuctionController extends Controller
      */
     public function indexAction()
     {
-        $auctionItem = [
-            [
-                "id" => 1,
-                'title' => 'super car',
-                "descriptions" => 'descriptions super car',
-                "price" => "10000 pln",
-            ],
-            [
-                "id" => 2,
-                'title' => 'super bike',
-                "descriptions" => 'descriptions super bike',
-                "price" => "100 pln",
-            ],
-            [
-                "id" => 3,
-                'title' => 'super truck',
-                "descriptions" => 'descriptions super truck',
-                "price" => "1000000 pln",
-            ]
-        ];
-
+        $auctionsList = $this->getDoctrine()->getRepository('App:AuctionItem')->findAll();
         return $this->render('auction/index.html.twig',[
-            'auctions' => $auctionItem
+            'auctions' => $auctionsList
         ]);
     }
 

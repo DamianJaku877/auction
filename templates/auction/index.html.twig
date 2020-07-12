@@ -14,20 +14,20 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            <div class="col-12" style="align-items: center">
+            <div class="col-12" style="text-align: center">
                 <h1>{{ 'auctions.body.title'|trans }}</h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 {% for auction in auctions %}
                     <ul class="list-group">
                         <a href="{{ path('auction_details', {'id' : auction.id}) }}" class="list-group-item list-group-item-action active">
                             {{ 'auctions.body.item.nameTitle'|trans }} {{ auction.id }}
                         </a>
-                        <li class="list-group-item"><b>{{ 'auctions.body.item.title'|trans }}</b>{{ auction.title }}</li>
-                        <li class="list-group-item"><b>{{ 'auctions.body.item.descriptions'|trans }}</b>{{ auction.descriptions }}</li>
-                        <li class="list-group-item"><b>{{ 'auctions.body.item.price'|trans }}</b>{{ auction.price }}</li>
+                        <li class="list-group-item"><b>{{ 'auctions.body.item.title'|trans }}</b>{{ auction.name }}</li>
+                        <li class="list-group-item"><b>{{ 'auctions.body.item.descriptions'|trans }}</b>{{ auction.description }}</li>
+                        <li class="list-group-item"><b>{{ 'auctions.body.item.price'|trans }}</b>{{ auction.price | round(2, 'common')}}{{ 'auctions.body.item.valute'|trans }}</li>
                     </ul>
                 {% endfor %}
             </div>
