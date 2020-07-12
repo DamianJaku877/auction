@@ -2,6 +2,9 @@
 {% block title %}{{ 'auctions.body.title'|trans }}{% endblock %}
 {% block stylesheets %}
     <style>
+        h1{
+            color: white;
+        }
         a{
             text-align: center;
             color: red;
@@ -11,7 +14,7 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            <div class="col-6" style="align-items: center">
+            <div class="col-12" style="align-items: center">
                 <h1>{{ 'auctions.body.title'|trans }}</h1>
             </div>
         </div>
@@ -19,9 +22,8 @@
             <div class="col-lg-6">
                 {% for auction in auctions %}
                     <ul class="list-group">
-{#                        <li class="list-group-item active"> <a href="{{ path('auction_details', {'id': auction.id}) }}" style="text-decoration: none; color: #222222" >{{ auction.id }}</a></li>#}
                         <a href="{{ path('auction_details', {'id' : auction.id}) }}" class="list-group-item list-group-item-action active">
-                            {{ auction.id }}
+                            {{ 'auctions.body.item.nameTitle'|trans }} {{ auction.id }}
                         </a>
                         <li class="list-group-item"><b>{{ 'auctions.body.item.title'|trans }}</b>{{ auction.title }}</li>
                         <li class="list-group-item"><b>{{ 'auctions.body.item.descriptions'|trans }}</b>{{ auction.descriptions }}</li>

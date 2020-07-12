@@ -1,7 +1,8 @@
 auctions:
   body:
-    title: "List of auctions"
+    title: "List of auctions: "
     item:
       title: "Title: "
+      nameTitle: "Number Auctions: "
       descriptions: "Descriptions: "
       price: "Price: "
