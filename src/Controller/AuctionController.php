@@ -33,7 +33,7 @@ class AuctionController extends Controller
      */
     public function detailsAction($id)
     {
-        $auctionID = $this->getDoctrine()->getManager()->getRepository(AuctionItem::class)->findBy(["id" => $id]);
+        $auctionID = $this->getDoctrine()->getManager()->getRepository(AuctionItem::class)->findOneBy(["id" => $id]);
         return $this->render("auction/details.html.twig", [
             'auctionOneById' => $auctionID
         ]);
