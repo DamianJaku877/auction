@@ -5,15 +5,19 @@ namespace App\Form;
 
 
 use App\Entity\AuctionItem;
+use Doctrine\DBAL\Types\FloatType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AuctionItemType extends AbstractType
+class AuctionItemType extends AbstractType implements FormTypeInterface
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -21,6 +25,8 @@ class AuctionItemType extends AbstractType
             ->add("name", TextType::class)
             ->add("description", TextareaType::class)
             ->add("price", NumberType::class)
+            ->add("startPrice", NumberType::class)
+            ->add("expiresAt", DateType::class)
             ->add("Submit", SubmitType::class);
     }
 

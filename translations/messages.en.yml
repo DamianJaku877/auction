@@ -4,12 +4,15 @@ auctions:
     addAuctions: "Add new Auction"
   body:
     title: "List of auctions: "
+    text: "There are no auctions. Come back later."
     item:
       title: "Title: "
       nameTitle: "Auction nr: "
       descriptions: "Descriptions: "
       price: "Price: "
+      startetPrice: "Opening price in auction: "
       valute: " EUR"
+      expiresAt: "Closing time auction: "
   footer:
     text: "copyright 2020"
   details:

@@ -1,9 +1,19 @@
 auctions:
+  navbar:
+    home: "Auctions List"
+    addAuctions: "Add new Auction"
   body:
-    title: "Lista aukcji "
+    title: "List of auctions: "
+    text: "There are no auctions. Come back later."
     item:
-      title: "Tytuł: "
-      nameTitle: "Aukcja nr: "
-      descriptions: "Opis: "
-      price: "Cena: "
-      valute: "PLN"
+      title: "Title: "
+      nameTitle: "Auction nr: "
+      descriptions: "Descriptions: "
+      price: "Price: "
+      startetPrice: "Opening price in auction: "
+      valute: " EUR"
+      expiresAt: "Closing time auction: "
+  footer:
+    text: "copyright 2020"
+  details:
+    title: "Details Auction"
