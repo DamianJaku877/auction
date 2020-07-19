@@ -22,6 +22,8 @@
                             <li class="list-group-item"><b>{{ 'auctions.body.item.title'|trans }}</b>{{ auctionOne.name }}</li>
                             <li class="list-group-item"><b>{{ 'auctions.body.item.descriptions'|trans }}</b>{{ auctionOne.description }}</li>
                             <li class="list-group-item"><b>{{ 'auctions.body.item.price'|trans }}</b>{{ auctionOne.price }}{{ 'auctions.body.item.valute'|trans }}</li>
+                            <li class="list-group-item"><b>{{ 'auctions.body.item.startetPrice'|trans }}</b>{{ auctionOne.startPrice }}{{ 'auctions.body.item.valute'|trans }}</li>
+                            <li class="list-group-item"><b>{{ 'auctions.body.item.expiresAt'|trans }}</b>{{ auctionOne.expiresAt |date("Y-m-d H:m:s")}}</li>
                         </ul>
                     {% endfor %}
                 </div>
