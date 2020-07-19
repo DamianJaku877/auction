@@ -1,33 +1,33 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
     <style>
-        h1{
-            color: white;
-        }
-        a{
-            text-align: center;
-        }
+
     </style>
 {% endblock %}
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1>{{ 'auctions.body.moreDetails'|trans }}</h1>
+    {% for auction in auctionOneById %}
+        <div class="container">
+            <div class="row">
+                <div class="col-12" style="text-align: center">
+                    <h1>{{ 'auctions.details.title'|trans }}</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    {% for auctionOne in auctionOneById %}
+                        <ul class="list-group">
+                            <a href="{{ path('auction_details', {'id' : auctionOne.id}) }}" class="list-group-item list-group-item-action active">
+                                {{ 'auctions.body.item.nameTitle'|trans }} {{ auctionOne.id }}
+                            </a>
+                            <li class="list-group-item"><b>{{ 'auctions.body.item.title'|trans }}</b>{{ auctionOne.name }}</li>
+                            <li class="list-group-item"><b>{{ 'auctions.body.item.descriptions'|trans }}</b>{{ auctionOne.description }}</li>
+                            <li class="list-group-item"><b>{{ 'auctions.body.item.price'|trans }}</b>{{ auctionOne.price }}{{ 'auctions.body.item.valute'|trans }}</li>
+                            <li class="list-group-item"><b>{{ 'auctions.body.item.startetPrice'|trans }}</b>{{ auctionOne.startPrice }}{{ 'auctions.body.item.valute'|trans }}</li>
+                            <li class="list-group-item"><b>{{ 'auctions.body.item.expiresAt'|trans }}</b>{{ auctionOne.expiresAt |date("Y-m-d H:m:s")}}</li>
+                        </ul>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <ul class="list-group">
-                    <li class="list-group-item"><b>{{ 'auctions.body.item.title'|trans }}</b>{{ auctionOneById.name }}
-                    </li>
-                    <li class="list-group-item">
-                        <b>{{ 'auctions.body.item.descriptions'|trans }}</b>{{ auctionOneById.description }}</li>
-                    <li class="list-group-item">
-                        <b>{{ 'auctions.body.item.price'|trans }}</b>{{ auctionOneById.price }}{{ 'auctions.body.item.valute'|trans }}
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 {% endblock %}

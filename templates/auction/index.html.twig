@@ -2,41 +2,50 @@
 {% block title %}{{ 'auctions.body.title'|trans }}{% endblock %}
 {% block stylesheets %}
     <style>
-        h1 {
+        h1{
+            text-align: center;
             color: white;
         }
-
-        a {
+        a{
             text-align: center;
         }
+
     </style>
 {% endblock %}
 {% block body %}
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12" style="text-align: center">
                 <h1>{{ 'auctions.body.title'|trans }}</h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
-                {% for auction in auctions %}
-                    <div class="col-lg-10">
+            <div class="col-lg-12">
+                <table>
+                    {% for auction in pagination %}
                         <ul class="list-group">
-                            <a href="{{ path('auction_details', {'id' : auction.id}) }}"
-                               class="list-group-item list-group-item-action active">
+                            <a href="{{ path('auction_details', {'id' : auction.id}) }}" class="list-group-item list-group-item-action active">
                                 {{ 'auctions.body.item.nameTitle'|trans }} {{ auction.id }}
                             </a>
-                            <li class="list-group-item"><b>{{ 'auctions.body.item.title'|trans }}</b>{{ auction.name }}
-                            </li>
-                            <li class="list-group-item">
-                                <b>{{ 'auctions.body.item.descriptions'|trans }}</b>{{ auction.description }}</li>
-                            <li class="list-group-item">
-                                <b>{{ 'auctions.body.item.price'|trans }}</b>{{ auction.price }}{{ 'auctions.body.item.valute'|trans }}
-                            </li>
+                            <li class="list-group-item"><b>{{ 'auctions.body.item.title'|trans }}</b>{{ auction.name }}</li>
+                            <li class="list-group-item"><b>{{ 'auctions.body.item.descriptions'|trans }}</b>{{ auction.description }}</li>
+                            <li class="list-group-item"><b>{{ 'auctions.body.item.price'|trans }}</b>{{ auction.price }}{{ 'auctions.body.item.valute'|trans }}</li>
+                            {% if auction.startPrice != 0 %}
+                            <li class="list-group-item"><b>{{ 'auctions.body.item.startetPrice'|trans }}</b>{{ auction.startPrice }}{{ 'auctions.body.item.valute'|trans }}</li>
+                            {% else %}
+                                <li class="list-group-item"><b>{{ 'auctions.body.item.startetPrice'|trans }}</b></li>
+                            {% endif %}
+                            <li class="list-group-item"><b>{{ 'auctions.body.item.expiresAt'|trans }}</b>{{ auction.expiresAt |date("Y-m-d H:m:s")}}</li>
                         </ul>
-                    </div>
-                {% endfor %}
+                        {% else %}
+                            <div class="alert alert-danger" role="alert">
+                                <h3>{{ 'auctions.body.text'|trans }}</h3>
+                            </div>
+                    {% endfor %}
+                </table>
+                <div class="navigation">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
             </div>
         </div>
     </div>
