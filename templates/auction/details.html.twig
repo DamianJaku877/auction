@@ -10,7 +10,24 @@
     </style>
 {% endblock %}
 {% block body %}
-    {% for auction in auctionOneById %}
-    <h1>more descriptions {{ auction.name }}</h1>
-    {% endfor %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>{{ 'auctions.body.moreDetails'|trans }}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <ul class="list-group">
+                    <li class="list-group-item"><b>{{ 'auctions.body.item.title'|trans }}</b>{{ auctionOneById.name }}
+                    </li>
+                    <li class="list-group-item">
+                        <b>{{ 'auctions.body.item.descriptions'|trans }}</b>{{ auctionOneById.description }}</li>
+                    <li class="list-group-item">
+                        <b>{{ 'auctions.body.item.price'|trans }}</b>{{ auctionOneById.price }}{{ 'auctions.body.item.valute'|trans }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}

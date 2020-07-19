@@ -33,7 +33,7 @@ class AuctionItem
     private $description;
 
     /**
-     * @ORM\Column(type="decimal", length=20)
+     * @ORM\Column(type="decimal", precision=20, scale=2, length=20)
      */
     private $price;
 
