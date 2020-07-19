@@ -21,6 +21,8 @@ class AuctionController extends Controller
     public function indexAction()
     {
         $auctionsList = $this->getDoctrine()->getRepository('App:AuctionItem')->findAll();
+
+
         return $this->render("auction/index.html.twig",[
             'auctions' => $auctionsList
         ]);
@@ -34,6 +36,8 @@ class AuctionController extends Controller
     public function detailsAction($id)
     {
         $auctionID = $this->getDoctrine()->getManager()->getRepository(AuctionItem::class)->findBy(["id" => $id]);
+
+
         return $this->render("auction/details.html.twig", [
             'auctionOneById' => $auctionID
         ]);
@@ -61,6 +65,8 @@ class AuctionController extends Controller
 
             return $this->redirectToRoute("auction_index");
         }
+
+
         return $this->render("auction/add.html.twig", ["form" => $form->createView()]);
     }
 }
