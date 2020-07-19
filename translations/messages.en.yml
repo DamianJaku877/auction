@@ -1,4 +1,7 @@
 auctions:
+  navbar:
+    home: "Auctions List"
+    addAuctions: "Add new Auction"
   body:
     title: "List of auctions: "
     item:
@@ -7,3 +10,7 @@ auctions:
       descriptions: "Descriptions: "
       price: "Price: "
       valute: " EUR"
+  footer:
+    text: "copyright 2020"
+  details:
+    title: "Details Auction"
