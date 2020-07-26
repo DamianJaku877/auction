@@ -10,6 +10,7 @@ use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,7 +31,7 @@ class AuctionController extends AbstractController
         $pagination = $paginator->paginate(
             $auctionsList, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
-            10 /*limit per page*/
+            3 /*limit per page*/
         );
 
         return $this->render("auction/index.html.twig",[
@@ -47,10 +48,15 @@ class AuctionController extends AbstractController
     public function detailsAction($id)
     {
         $auctionID = $this->getDoctrine()->getManager()->getRepository(AuctionItem::class)->findBy(["id" => $id]);
-
+        $deleteForm = $this->createFormBuilder()
+            ->setAction($this->generateUrl('auction_delete', ["id" => $id]))
+            ->setMethod(Request::METHOD_DELETE)
+            ->add('submit', SubmitType::class)
+            ->getForm();
 
         return $this->render("auction/details.html.twig", [
-            'auctionOneById' => $auctionID
+            'auctionOneById' => $auctionID,
+            'deleteForm' => $deleteForm->createView()
         ]);
     }
 
@@ -85,6 +91,9 @@ class AuctionController extends AbstractController
 
     /**
      * @Route("/auction/delete/{id}", name="auction_delete")
+     * @param AuctionItem $auctionItem
+     * @param EntityManagerInterface $entityManager
+     * @return RedirectResponse
      */
     public function deleteAction(AuctionItem $auctionItem, EntityManagerInterface $entityManager)
     {

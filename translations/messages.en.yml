@@ -22,6 +22,9 @@ auctions:
   details:
     title: "Details Auction"
 
+    button:
+      delete: "Delete"
+
   formadd:
     name: "Name: "
     descriptions: "Descriptions: "

@@ -27,6 +27,11 @@
                         </ul>
                     {% endfor %}
                 </div>
+                <div class="btn-group" style="padding: 10px">
+                        {{ form_start(deleteForm) }}
+                            {{ form_widget(deleteForm.submit, {'label': 'auctions.details.button.delete', 'attr': {'class': 'btn-danger'}}) }}
+                        {{ form_end(deleteForm) }}
+                </div>
             </div>
         </div>
     {% endfor %}
