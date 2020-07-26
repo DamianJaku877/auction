@@ -23,7 +23,7 @@ class AuctionController extends AbstractController
      * @param PaginatorInterface $paginator
      * @return Response
      */
-    public function indexAction(Request $request, EntityManagerInterface $entityManager,  PaginatorInterface $paginator)
+    public function indexAction(Request $request,  PaginatorInterface $paginator)
     {
         $auctionsList = $this->getDoctrine()->getRepository('App:AuctionItem')->findAll();
 
@@ -80,7 +80,17 @@ class AuctionController extends AbstractController
             return $this->redirectToRoute("auction_index");
         }
 
-
         return $this->render("auction/add.html.twig", ["form" => $form->createView()]);
+    }
+
+    /**
+     * @Route("/auction/delete/{id}", name="auction_delete")
+     */
+    public function deleteAction(AuctionItem $auctionItem, EntityManagerInterface $entityManager)
+    {
+        $entityManager->remove($auctionItem);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('auction_index');
     }
 }
