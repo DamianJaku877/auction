@@ -1,7 +1,9 @@
 auctions:
+
   navbar:
     home: "Auctions List"
     addAuctions: "Add new Auction"
+
   body:
     title: "List of auctions: "
     text: "There are no auctions. Come back later."
@@ -13,7 +15,16 @@ auctions:
       startetPrice: "Opening price in auction: "
       valute: " EUR"
       expiresAt: "Closing time auction: "
+
   footer:
     text: "copyright 2020"
+
   details:
     title: "Details Auction"
+
+  formadd:
+    name: "Name: "
+    descriptions: "Descriptions: "
+    price: "Price: "
+    startPrice: "Starting Price: "
+    expiresAt: "Expires Date: "

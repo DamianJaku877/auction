@@ -1,23 +1,29 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
-<style>
-    div.container{
-        color: white;
-    }
-    form{
-        margin: 20px;
-        color: white;
-    }
-</style>
+    <style>
+        div.form-group {
+            color: white;
+        }
+
+        form {
+            margin: 20px;
+            color: white;
+        }
+    </style>
 {% endblock %}
 {% block body %}
-    <div class="container">
-        <div class="form">
-            <div class="row">
-                <div class="col-lg-6">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group ">
+                    {{ form_start(form) }}
                     {{ form(form) }}
+                    {{ form_end(form) }}
                 </div>
             </div>
         </div>
     </div>
+{% endblock %}
+{% block javascripts %}
+
 {% endblock %}
